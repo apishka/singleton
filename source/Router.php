@@ -20,7 +20,7 @@ class Router extends \Apishka\EasyExtend\Router\ByKeyAbstract
 
     protected function isCorrectItem(\ReflectionClass $reflector)
     {
-        return $reflector->isSubclassOf('\Apishka\Singleton\SingletonTrait');
+        return $this->hasClassTrait($reflector, 'Apishka\Singleton\SingletonTrait');
     }
 
     /**

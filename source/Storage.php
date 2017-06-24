@@ -9,6 +9,12 @@ namespace Apishka\Singleton;
 class Storage
 {
     /**
+     * Traits
+     */
+
+    use \Apishka\EasyExtend\Helper\ByClassNameTrait;
+
+    /**
      * Router
      *
      * @var Router
@@ -34,8 +40,8 @@ class Storage
 
     public function __get($name)
     {
-        if (!array_key_exists($this->_singletons))
-            $this->_singletons[$name] = $this->createSingleton();
+        if (!array_key_exists($name, $this->_singletons))
+            $this->_singletons[$name] = $this->createSingleton($name);
 
         return $this->_singletons[$name];
     }
@@ -48,7 +54,7 @@ class Storage
      * @return mixed
      */
 
-    public function createSingleton()
+    public function createSingleton($name)
     {
         return $this->getRouter()->getItem($name);
     }
@@ -62,7 +68,7 @@ class Storage
     protected function getRouter()
     {
         if ($this->_router === null)
-            $this->_router = Apishka\EasyExtend\Broker::getInstance()->getRouter('Apishka\Singleton\Router');
+            $this->_router = \Apishka\EasyExtend\Broker::getInstance()->getRouter('Apishka\Singleton\Router');
 
         return $this->_router;
     }
