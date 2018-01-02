@@ -1,14 +1,15 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace Apishka\Singleton;
+
+use Apishka\EasyExtend\Router\ByKeyAbstract;
 
 /**
  * Router
  *
  * @easy-extend-base
  */
-
-class Router extends \Apishka\EasyExtend\Router\ByKeyAbstract
+class Router extends ByKeyAbstract
 {
     /**
      * Checks item for correct information
@@ -17,10 +18,9 @@ class Router extends \Apishka\EasyExtend\Router\ByKeyAbstract
      *
      * @return bool
      */
-
-    protected function isCorrectItem(\ReflectionClass $reflector)
+    protected function isCorrectItem(\ReflectionClass $reflector): bool
     {
-        return $this->hasClassTrait($reflector, 'Apishka\Singleton\SingletonTrait');
+        return $this->hasClassTrait($reflector, SingletonTrait::class);
     }
 
     /**
@@ -31,8 +31,7 @@ class Router extends \Apishka\EasyExtend\Router\ByKeyAbstract
      *
      * @return array
      */
-
-    protected function getClassVariants(\ReflectionClass $reflector, $item)
+    protected function getClassVariants(\ReflectionClass $reflector, $item): array
     {
         return $item->getSupportedNames();
     }
@@ -44,7 +43,6 @@ class Router extends \Apishka\EasyExtend\Router\ByKeyAbstract
      *
      * @return mixed
      */
-
     public function getItem($name)
     {
         if (func_num_args() > 1)
