@@ -5,13 +5,11 @@ namespace Apishka\Singleton;
 /**
  * Storage
  */
-
 class Storage
 {
     /**
      * Traits
      */
-
     use \Apishka\EasyExtend\Helper\ByClassNameTrait;
 
     /**
@@ -19,7 +17,6 @@ class Storage
      *
      * @var Router
      */
-
     private $_router = null;
 
     /**
@@ -27,8 +24,7 @@ class Storage
      *
      * @var array
      */
-
-    private $_singletons = array();
+    private $_singletons = [];
 
     /**
      * Get
@@ -37,7 +33,6 @@ class Storage
      *
      * @return mixed
      */
-
     public function __get($name)
     {
         if (!array_key_exists($name, $this->_singletons))
@@ -53,7 +48,6 @@ class Storage
      *
      * @return mixed
      */
-
     public function createSingleton($name)
     {
         return $this->getRouter()->getItem($name);
@@ -64,7 +58,6 @@ class Storage
      *
      * @return Router
      */
-
     protected function getRouter()
     {
         if ($this->_router === null)

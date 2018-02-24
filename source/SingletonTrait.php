@@ -5,7 +5,6 @@ namespace Apishka\Singleton;
 /**
  * Singleton trait
  */
-
 trait SingletonTrait
 {
     /**
@@ -13,7 +12,6 @@ trait SingletonTrait
      *
      * @return array
      */
-
     abstract public function getSupportedNames();
 
     /**
@@ -21,7 +19,6 @@ trait SingletonTrait
      *
      * @return mixed
      */
-
     public static function apishkaCreateInstance()
     {
         return new static();

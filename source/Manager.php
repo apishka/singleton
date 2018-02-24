@@ -5,7 +5,6 @@ namespace Apishka\Singleton;
 /**
  * Manager
  */
-
 class Manager
 {
     /**
@@ -13,7 +12,6 @@ class Manager
      *
      * @var Storage
      */
-
     private static $_instance = null;
 
     /**
@@ -21,7 +19,6 @@ class Manager
      *
      * @return Storage
      */
-
     public static function getInstance()
     {
         if (self::$_instance === null)
@@ -33,21 +30,18 @@ class Manager
     /**
      * Construct
      */
-
     private function __construct()
     {}
 
     /**
      * Clone
      */
-
     private function __clone()
     {}
 
     /**
      * Wakeup
      */
-
     private function __wakeup()
     {}
 }
